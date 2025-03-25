@@ -9,7 +9,7 @@ function getComputerChoice() {
         case 2:
             return "scissors";
         default:
-            return "Unknown choice";
+            return null;
     }
 }
 

@@ -66,6 +66,10 @@ function getComputerChoice() {
 function getHumanChoice() {
     let choice = prompt("Rock, paper, scissors?");
 
+    if (choice === "") {
+        choice = null;
+    }
+
     if (choice !== null) {
         choice = choice[0].toUpperCase() + choice.slice(1).toLowerCase();
 

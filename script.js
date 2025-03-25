@@ -6,11 +6,11 @@ function getComputerChoice() {
 
     switch (randomChoice) {
         case 0:
-            return "rock";
+            return "Rock";
         case 1:
-            return "paper";
+            return "Paper";
         case 2:
-            return "scissors";
+            return "Scissors";
         default:
             return null;
     }
@@ -20,9 +20,9 @@ function getHumanChoice() {
     let choice = prompt("Rock, paper, scissors?");
 
     if (choice !== null) {
-        choice = choice.toLowerCase();
+        choice = choice[0].toUpperCase() + choice.slice(1).toLowerCase();
 
-        if (choice !== "rock" && choice !== "paper" && choice !== "scissors") {
+        if (choice !== "Rock" && choice !== "Paper" && choice !== "Scissors") {
             choice = null;
         }
     }

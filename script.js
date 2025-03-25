@@ -1,6 +1,26 @@
 let computerScore = 0;
 let humanScore = 0;
 
+playRound(getComputerChoice(), getHumanChoice());
+
+function playRound(computerChoice, humanChoice) {
+    if (computerChoice !== null && humanChoice === null ||
+        computerChoice === "Rock" && humanChoice === "Scissors" ||
+        computerChoice === "Paper" && humanChoice === "Rock" ||
+        computerChoice === "Scissors" && humanChoice === "Paper") {
+        computerScore++;
+        console.log(`Computer won! ${computerChoice} beats ${humanChoice}.`);
+    } else if (computerChoice === humanChoice) {
+        console.log(`It's a tie! ${computerChoice} against ${humanChoice}.`)
+    }
+    else {
+        humanScore++;
+        console.log(`Human won! ${humanChoice} beats ${computerChoice}.`);
+    }
+
+    console.log(`Score: Computer - ${computerScore} | Human - ${humanScore}`)
+}
+
 function getComputerChoice() {
     const randomChoice = Math.floor(Math.random() * 3);
 

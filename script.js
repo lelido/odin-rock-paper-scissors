@@ -12,3 +12,17 @@ function getComputerChoice() {
             return "Unknown choice";
     }
 }
+
+function getHumanChoice() {
+    let choice = prompt("Rock, paper, scissors?");
+
+    if (choice !== null) {
+        choice = choice.toLowerCase();
+
+        if (choice !== "rock" && choice !== "paper" && choice !== "scissors") {
+            choice = null;
+        }
+    }
+
+    return choice;
+}

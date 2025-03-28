@@ -1,5 +1,13 @@
 // playGame();
 
+const rockButton = document.querySelector("#rock");
+const paperButton = document.querySelector("#paper");
+const scissorsButton = document.querySelector("#scissors");
+
+rockButton.addEventListener("click", () => playRound("Rock"));
+paperButton.addEventListener("click", () => playRound("Paper"));
+scissorsButton.addEventListener("click", () => playRound("Scissors"));
+
 function playGame() {
     let computerScore = 0;
     let humanScore = 0;
@@ -27,7 +35,8 @@ function playGame() {
     }
 }
 
-function playRound(computerChoice, humanChoice) {
+function playRound(humanChoice) {
+    const computerChoice = getComputerChoice();
     let winner;
 
     if (computerChoice !== null && humanChoice === null ||

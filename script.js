@@ -5,13 +5,27 @@ const roundResults = document.querySelector("#round-results");
 const gameResults = document.querySelector("#game-results");
 const computerScoreSpan = document.querySelector("#score #computer");
 const humanScoreSpan = document.querySelector("#score #human");
+const humanChoiceDiv = document.querySelector("#human-choice");
+const computerChoiceDiv = document.querySelector("#computer-choice");
+const rockIcon = "🪨";
+const paperIcon = "📜";
+const scissorsIcon = "✂️";
 let computerScore = 0;
 let humanScore = 0;
 let gameEnded = false;
 
-rockButton.addEventListener("click", () => playRound("Rock"));
-paperButton.addEventListener("click", () => playRound("Paper"));
-scissorsButton.addEventListener("click", () => playRound("Scissors"));
+rockButton.addEventListener("click", () => {
+    humanChoiceDiv.textContent = rockIcon;
+    playRound("Rock");
+});
+paperButton.addEventListener("click", () => {
+    humanChoiceDiv.textContent = paperIcon;
+    playRound("Paper");
+});
+scissorsButton.addEventListener("click", () => {
+    humanChoiceDiv.textContent = scissorsIcon;
+    playRound("Scissors");
+});
 
 function playRound(humanChoice) {
     const computerChoice = getComputerChoice();
@@ -44,10 +58,13 @@ function getComputerChoice() {
 
     switch (randomChoice) {
         case 0:
+            computerChoiceDiv.textContent = rockIcon;
             return "Rock";
         case 1:
+            computerChoiceDiv.textContent = paperIcon;
             return "Paper";
         case 2:
+            computerChoiceDiv.textContent = scissorsIcon;
             return "Scissors";
         default:
             return null;
@@ -79,4 +96,5 @@ function resetGame() {
     computerScoreSpan.textContent = 0;
     humanScoreSpan.textContent = 0;
     gameResults.textContent = "";
+
 }

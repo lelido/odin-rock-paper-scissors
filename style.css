@@ -18,23 +18,46 @@ button {
 
 .buttons {
     display: flex;
-    flex-direction: column;
     gap: 8px;
 }
 
-button {
-    width: 125px;
-    height: 125px;
+button,
+.choices div {
     background-color: rgba(245, 229, 234, 0.226);
     border: 3px solid;
     border-radius: 16px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
+}
+
+button {
+    flex-direction: column;
+    width: 125px;
+    height: 125px;
     gap: 8px;
     font-size: 24px;
 }
 
 button #icon {
     font-size: 48px;
+}
+
+.choices {
+    display: flex;
+    gap: 32px;
+}
+
+.choices div {
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    font-size: 80px;
+}
+
+.game-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
 }

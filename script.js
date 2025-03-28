@@ -81,10 +81,10 @@ function updateScore(winner) {
     }
 
     if (computerScore >= 5) {
-        gameResults.textContent = "COMPUTER SCORED 5 POINTS AND WON THE GAME";
+        gameResults.textContent = "COMPUTER SCORED 5 POINTS AND WON THE GAME!";
         gameEnded = true;
     } else if (humanScore >= 5) {
-        gameResults.textContent = "HUMAN SCORED 5 POINTS AND WON THE GAME";
+        gameResults.textContent = "HUMAN SCORED 5 POINTS AND WON THE GAME!";
         gameEnded = true;
     }
 }

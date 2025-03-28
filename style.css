@@ -66,5 +66,18 @@ button #icon {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 64px;
+    gap: 48px;
+    width: 500px;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#round-results,
+#game-results {
+    height: 24px;
+    text-align: center;
 }

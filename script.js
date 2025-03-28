@@ -3,6 +3,7 @@
 const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
+const roundResults = document.querySelector("#round-results");
 
 rockButton.addEventListener("click", () => playRound("Rock"));
 paperButton.addEventListener("click", () => playRound("Paper"));
@@ -44,14 +45,14 @@ function playRound(humanChoice) {
         computerChoice === "Paper" && humanChoice === "Rock" ||
         computerChoice === "Scissors" && humanChoice === "Paper") {
         winner = "Computer";
-        console.log(`Computer won! ${computerChoice} beats ${humanChoice}.`);
+        roundResults.textContent = `Computer won! ${computerChoice} beats ${humanChoice}.`;
     } else if (computerChoice === humanChoice) {
         winner = "Tie";
-        console.log(`It's a tie! ${computerChoice} against ${humanChoice}.`)
+        roundResults.textContent = `It's a tie! ${computerChoice} against ${humanChoice}.`;
     }
     else {
         winner = "Human";
-        console.log(`Human won! ${humanChoice} beats ${computerChoice}.`);
+        roundResults.textContent = `Human won! ${humanChoice} beats ${computerChoice}.`;
     }
 
     return winner;

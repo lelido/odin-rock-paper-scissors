@@ -9,6 +9,7 @@ const computerScoreSpan = document.querySelector("#score #computer");
 const humanScoreSpan = document.querySelector("#score #human");
 let computerScore = 0;
 let humanScore = 0;
+let gameEnded = false;
 
 rockButton.addEventListener("click", () => playRound("Rock"));
 paperButton.addEventListener("click", () => playRound("Paper"));
@@ -33,6 +34,10 @@ function playGame() {
 function playRound(humanChoice) {
     const computerChoice = getComputerChoice();
     let winner;
+
+    if (gameEnded) {
+        resetGame();
+    }
 
     if (computerChoice !== null && humanChoice === null ||
         computerChoice === "Rock" && humanChoice === "Scissors" ||
@@ -80,9 +85,20 @@ function updateScore(winner) {
 
     if (computerScore >= 5) {
         gameResults.textContent = "COMPUTER SCORED 5 POINTS AND WON THE GAME";
+        gameEnded = true;
     } else if (humanScore >= 5) {
         gameResults.textContent = "HUMAN SCORED 5 POINTS AND WON THE GAME";
+        gameEnded = true;
     }
+}
+
+function resetGame() {
+    gameEnded = false;
+    computerScore = 0;
+    humanScore = 0;
+    computerScoreSpan.textContent = 0;
+    humanScoreSpan.textContent = 0;
+    gameResults.textContent = "";
 }
 
 function getHumanChoice() {

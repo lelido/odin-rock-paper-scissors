@@ -4,6 +4,7 @@ const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
 const roundResults = document.querySelector("#round-results");
+const gameResults = document.querySelector("#game-results");
 const computerScoreSpan = document.querySelector("#score #computer");
 const humanScoreSpan = document.querySelector("#score #human");
 let computerScore = 0;
@@ -77,12 +78,10 @@ function updateScore(winner) {
         humanScoreSpan.textContent = humanScore;
     }
 
-    if (computerScore > humanScore) {
-        console.log(`\nCOMPUTER IS THE OVERALL WINNER! ${computerScore}:${humanScore}`);
-    } else if (humanScore > computerScore) {
-        console.log(`\nHUMAN IS THE OVERALL WINNER! ${humanScore}:${computerScore}`);
-    } else {
-        console.log(`\nIT'S A TIE AFTER ALL! ${computerScore}:${humanScore}`);
+    if (computerScore >= 5) {
+        gameResults.textContent = "COMPUTER SCORED 5 POINTS AND WON THE GAME";
+    } else if (humanScore >= 5) {
+        gameResults.textContent = "HUMAN SCORED 5 POINTS AND WON THE GAME";
     }
 }
 

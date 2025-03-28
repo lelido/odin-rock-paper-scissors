@@ -93,8 +93,8 @@ function resetGame() {
     gameEnded = false;
     computerScore = 0;
     humanScore = 0;
-    computerScoreSpan.textContent = 0;
-    humanScoreSpan.textContent = 0;
+    computerScoreSpan.textContent = "Score: 0";
+    humanScoreSpan.textContent = "Score: 0";
     gameResults.textContent = "";
 
 }

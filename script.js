@@ -4,15 +4,16 @@ const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
 const roundResults = document.querySelector("#round-results");
+const computerScoreSpan = document.querySelector("#score #computer");
+const humanScoreSpan = document.querySelector("#score #human");
+let computerScore = 0;
+let humanScore = 0;
 
 rockButton.addEventListener("click", () => playRound("Rock"));
 paperButton.addEventListener("click", () => playRound("Paper"));
 scissorsButton.addEventListener("click", () => playRound("Scissors"));
 
 function playGame() {
-    let computerScore = 0;
-    let humanScore = 0;
-
     for (let i = 1; i < 6; i++) {
         console.log(`Round ${i}`)
 
@@ -25,14 +26,6 @@ function playGame() {
         }
 
         console.log(`Score: Computer - ${computerScore} | Human - ${humanScore}\n\n`);
-    }
-
-    if (computerScore > humanScore) {
-        console.log(`\nCOMPUTER IS THE OVERALL WINNER! ${computerScore}:${humanScore}`);
-    } else if (humanScore > computerScore) {
-        console.log(`\nHUMAN IS THE OVERALL WINNER! ${humanScore}:${computerScore}`);
-    } else {
-        console.log(`\nIT'S A TIE AFTER ALL! ${computerScore}:${humanScore}`);
     }
 }
 
@@ -55,6 +48,8 @@ function playRound(humanChoice) {
         roundResults.textContent = `Human won! ${humanChoice} beats ${computerChoice}.`;
     }
 
+    updateScore(winner);
+
     return winner;
 }
 
@@ -70,6 +65,24 @@ function getComputerChoice() {
             return "Scissors";
         default:
             return null;
+    }
+}
+
+function updateScore(winner) {
+    if (winner === "Computer") {
+        computerScore++;
+        computerScoreSpan.textContent = computerScore;
+    } else if (winner === "Human") {
+        humanScore++;
+        humanScoreSpan.textContent = humanScore;
+    }
+
+    if (computerScore > humanScore) {
+        console.log(`\nCOMPUTER IS THE OVERALL WINNER! ${computerScore}:${humanScore}`);
+    } else if (humanScore > computerScore) {
+        console.log(`\nHUMAN IS THE OVERALL WINNER! ${humanScore}:${computerScore}`);
+    } else {
+        console.log(`\nIT'S A TIE AFTER ALL! ${computerScore}:${humanScore}`);
     }
 }
 

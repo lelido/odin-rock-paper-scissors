@@ -3,8 +3,8 @@ const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
 const roundResults = document.querySelector("#round-results");
 const gameResults = document.querySelector("#game-results");
-const computerScoreSpan = document.querySelector("#score #computer");
-const humanScoreSpan = document.querySelector("#score #human");
+const computerScoreSpan = document.querySelector("#computer-score");
+const humanScoreSpan = document.querySelector("#human-score");
 const humanChoiceDiv = document.querySelector("#human-choice");
 const computerChoiceDiv = document.querySelector("#computer-choice");
 const rockIcon = "🪨";
@@ -74,10 +74,10 @@ function getComputerChoice() {
 function updateScore(winner) {
     if (winner === "Computer") {
         computerScore++;
-        computerScoreSpan.textContent = computerScore;
+        computerScoreSpan.textContent = `Score: ${computerScore}`;
     } else if (winner === "Human") {
         humanScore++;
-        humanScoreSpan.textContent = humanScore;
+        humanScoreSpan.textContent = `Score: ${humanScore}`;
     }
 
     if (computerScore >= 5) {

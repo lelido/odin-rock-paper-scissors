@@ -11,8 +11,16 @@
 <body>
     <div class="game-field">
         <div class="choices">
-            <div id="human-choice">❓</div>
-            <div id="computer-choice">❔</div>
+            <div>
+                <div>Human</div>
+                <div id="human-choice" class="choice">❓</div>
+                <div id="human-score">Score: 0</div>
+            </div>
+            <div>
+                <div>Computer</div>
+                <div id="computer-choice" class="choice">❔</div>
+                <div id="computer-score">Score: 0</div>
+            </div>
         </div>
         <div class="buttons">
             <button id="rock"><span id="icon">🪨</span><span id="text">Rock</span></button>
@@ -21,7 +29,6 @@
         </div>
     </div>
     <div>
-        <p id="score">Human: <span id="human">0</span> | Computer: <span id="computer">0</span></p>
         <p id="round-results"></p>
         <p id="game-results"></p>
     </div>

@@ -1,5 +1,3 @@
-// playGame();
-
 const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
@@ -14,22 +12,6 @@ let gameEnded = false;
 rockButton.addEventListener("click", () => playRound("Rock"));
 paperButton.addEventListener("click", () => playRound("Paper"));
 scissorsButton.addEventListener("click", () => playRound("Scissors"));
-
-function playGame() {
-    for (let i = 1; i < 6; i++) {
-        console.log(`Round ${i}`)
-
-        const winner = playRound(getComputerChoice(), getHumanChoice());
-
-        if (winner === "Computer") {
-            computerScore++;
-        } else if (winner === "Human") {
-            humanScore++;
-        }
-
-        console.log(`Score: Computer - ${computerScore} | Human - ${humanScore}\n\n`);
-    }
-}
 
 function playRound(humanChoice) {
     const computerChoice = getComputerChoice();
@@ -55,8 +37,6 @@ function playRound(humanChoice) {
     }
 
     updateScore(winner);
-
-    return winner;
 }
 
 function getComputerChoice() {
@@ -99,22 +79,4 @@ function resetGame() {
     computerScoreSpan.textContent = 0;
     humanScoreSpan.textContent = 0;
     gameResults.textContent = "";
-}
-
-function getHumanChoice() {
-    let choice = prompt("Rock, paper, scissors?");
-
-    if (choice === "") {
-        choice = null;
-    }
-
-    if (choice !== null) {
-        choice = choice[0].toUpperCase() + choice.slice(1).toLowerCase();
-
-        if (choice !== "Rock" && choice !== "Paper" && choice !== "Scissors") {
-            choice = null;
-        }
-    }
-
-    return choice;
 }
